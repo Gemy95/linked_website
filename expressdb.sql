@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 03, 2019 at 08:04 PM
+-- Generation Time: Apr 04, 2019 at 07:46 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.26
 
@@ -50,6 +50,13 @@ CREATE TABLE `articles` (
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `articles`
+--
+
+INSERT INTO `articles` (`id`, `role_id`, `text`, `type`, `date`) VALUES
+(1, 1, 'a96 new art', 'Php', '2019-04-04 15:20:30');
+
 -- --------------------------------------------------------
 
 --
@@ -95,6 +102,13 @@ CREATE TABLE `followers` (
   `follower_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `followers`
+--
+
+INSERT INTO `followers` (`id`, `user_id`, `follower_id`) VALUES
+(1, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -125,6 +139,13 @@ CREATE TABLE `notifications` (
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `notifications`
+--
+
+INSERT INTO `notifications` (`id`, `from_role_id`, `to_role_id`, `notifimessage`, `status`, `type`, `date`) VALUES
+(1, 2, 1, 'new follow', 'read', 'follow', '2019-04-04 15:22:28');
+
 -- --------------------------------------------------------
 
 --
@@ -136,6 +157,14 @@ CREATE TABLE `roles` (
   `role` text NOT NULL,
   `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`id`, `role`, `date`) VALUES
+(1, 'user', '2019-04-04 14:48:55'),
+(2, 'user', '2019-04-04 15:21:01');
 
 -- --------------------------------------------------------
 
@@ -157,6 +186,14 @@ CREATE TABLE `users` (
   `password` varchar(50) NOT NULL,
   `trn_date` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `role_id`, `name`, `username`, `website`, `bio`, `email`, `phonenumber`, `gender`, `career`, `password`, `trn_date`) VALUES
+(1, 1, '', 'a96', '', 'Ù…Ù‡Ù†Ø¯Ø³ Ø¨Ø±Ù…Ø¬ÙŠØ§Øª   ', 'ali.gamal880@yahoo.com', '', 'Male', 'Php', '827ccb0eea8a706c4c34a16891f84e7b', '2019-04-04 16:48:55'),
+(2, 2, '', 'a95', '', '', 'ali.gamal000@yahoo.com', '', '', NULL, '827ccb0eea8a706c4c34a16891f84e7b', '2019-04-04 17:21:01');
 
 --
 -- Indexes for dumped tables
@@ -240,13 +277,13 @@ ALTER TABLE `advertisments`
 -- AUTO_INCREMENT for table `articles`
 --
 ALTER TABLE `articles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `employees`
@@ -258,31 +295,31 @@ ALTER TABLE `employees`
 -- AUTO_INCREMENT for table `followers`
 --
 ALTER TABLE `followers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `messages`
 --
 ALTER TABLE `messages`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=82;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `notifications`
 --
 ALTER TABLE `notifications`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=111;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=65;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
